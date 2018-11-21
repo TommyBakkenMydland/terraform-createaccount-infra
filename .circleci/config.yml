@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  terraform: innovationnorway/terraform@dev:0.1.0
-
 workflows:
 
   terraform:
