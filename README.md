@@ -16,6 +16,5 @@
 
 # How to clean up ressources from Azure
 ### terraform workspace select default
-### terraform workspace delete dev
 ### terraform destroy -var-file="myvars.tfvars" -force
 ### terraform workspace delete dev
