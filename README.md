@@ -1,4 +1,4 @@
-# Creates 4 ressources in Azure
+# Create 4 ressources in Azure
 ### resource_group
 ### service_plan
 ### app_service
@@ -16,6 +16,5 @@
 
 # How to clean up ressources from Azure
 ### terraform workspace select default
-### terraform workspace delete dev
 ### terraform destroy -var-file="myvars.tfvars" -force
 ### terraform workspace delete dev
