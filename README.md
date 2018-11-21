@@ -1,4 +1,4 @@
-# Creates 4 ressources in Azure
+# Create 4 ressources in Azure
 ### resource_group
 ### service_plan
 ### app_service
