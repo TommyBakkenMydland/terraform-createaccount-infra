@@ -1,8 +1,37 @@
-version: 2
-jobs:
-  build:
-    docker: # use the docker executor type; machine and macos executors are also supported
-      - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
-    steps:
-      - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
+version: 2.1
+
+orbs:
+  terraform: innovationnorway/terraform@dev:0.1.0
+
+workflows:
+
+  terraform:
+    jobs:
+
+      - terraform/fmt:
+          filters:
+            branches:
+              ignore:
+                - master
+
+      - terraform/validate:
+          requires:
+            - terraform/fmt
+          filters:
+            branches:
+              ignore:
+                - master
+
+      - terraform/plan:
+          requires:
+            - terraform/validate
+          filters:
+            branches:
+              ignore:
+                - master
+                
+      - terraform/apply:
+          filters:
+            branches:
+              only:
+                - master
